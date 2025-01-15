@@ -1,198 +1,149 @@
+/* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Color de fondo */
+    background-color: #f4f4f4;
+    color: #333;
 }
 
+/* Header */
 header {
-    background-color: #6c63ff; /* Escoge uno de los colores */
+    background-color: #6c63ff;
     color: white;
     padding: 20px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    animation: fadeIn 2s ease-in-out;
 }
 
 nav ul {
-    list-style-type: none; /* Sin viñetas */
+    list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-nav ul li {
-    display: inline; /* Elementos en línea */
-    margin-right: 20px; /* Espaciado entre enlaces */
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
 }
 
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Secciones */
 section {
     margin: 20px;
     padding: 20px;
-    background-color: white; /* Color de fondo de las secciones */
-    border-radius: 8px; /* Bordes redondeados */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
 }
 
+/* Proyectos */
 .proyecto {
-    background-color: white;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .proyecto:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Contacto */
+.contacto-item {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contacto-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contacto-item i {
+    font-size: 3em;
+    color: #6c63ff;
+}
+
+.contacto-item p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Botones */
+.boton-cv, .boton-contacto {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c63ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton-cv:hover, .boton-contacto:hover {
+    background-color: #574bff;
+    transform: scale(1.1);
+}
+
+/* Footer */
 footer {
-    background-color: #6c63ff; /* Asegúrate de usar el mismo color que en header */
+    background-color: #6c63ff;
     color: white;
     text-align: center;
     padding: 10px;
 }
 
-/* Estilos responsivos */
-@media (max-width: 600px) {
-   nav ul li {
-       display: block; 
-       margin-right: 0; 
-   }
-}
-
-/* Estilo para la sección "Sobre mí" */
-#sobre-mi {
-    background-color: #f9f9f9; 
-    padding: 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-}
-
-#sobre-mi h2 {
-    font-size: 2.5em; 
-    color: #333; 
-    text-align: center; 
-}
-
-#sobre-mi p {
-    font-size: 1.2em; 
-    line-height: 1.6; 
-    color: #666; 
-    margin-top: 10px; 
-}
-
-/* Enlaces en "Sobre mí" */
-#sobre-mi a {
-    color: #030508; 
-    text-decoration: none; 
-}
-
-#sobre-mi a:hover {
-    text-decoration: underline; 
-}
-
-/* Estilos del botón */
-.boton-cv {
-    display: inline-block;
-    padding: 10px 20px; 
-    background-color: #007bff; /* Unifica el color aquí */
-    color: white; 
-    text-decoration: none; 
-    border-radius: 5px; 
-    font-size: 1.2em; 
-    transition: transform 0.3s, background-color 0.3s; 
-}
-
-.boton-cv:hover {
-    background-color: #48d2fd; /* Color más oscuro al pasar el ratón */
-}
-
-.boton-cv:active {
-   transform: scale(0.95); /* Efecto de presión al hacer clic */
-}
-
-/* Efecto de pulso usando keyframes */
-@keyframes pulso {
-   0% { transform: scale(1); }
-   50% { transform: scale(1.1); }
-   100% { transform: scale(1); }
-}
-
-.boton-cv {
-   animation: pulso 2s infinite; /* Pulsar continuamente */
-}
-@keyframes slideIn {
-    0% {
-        transform: translateY(20px);
+/* Animaciones */
+@keyframes fadeIn {
+    from {
         opacity: 0;
+        transform: translateY(20px);
     }
-    100% {
-        transform: translateY(0);
+    to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
-#contacto {
-    background-color: #e0f7fa; /* Fondo suave */
-    padding: 50px;
-    border-radius: 15px;
-    text-align: center;
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid #6c63ff;
+    white-space: nowrap;
+    animation: typing 3s steps(30, end), blink 0.5s step-end infinite alternate;
 }
 
-#contacto h2 {
-    font-family: 'Cursive', sans-serif; /* Tipografía creativa */
-    color: #00796b;
-    margin-bottom: 30px;
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
-.contacto-item {
-    display: inline-block;
-    margin: 20px;
-    padding: 20px;
-    background-color: #ffffff; /* Color de fondo de las tarjetas */
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s, box-shadow 0.3s; 
-    animation: slideIn 0.5s forwards; /* Animación al entrar */
-}
-
-.contacto-item:hover {
-    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-}
-
-.contacto-item i {
-    font-size: 3em; /* Tamaño del icono */
-    color: #00796b; /* Color del icono */
-}
-
-.contacto-item p {
-    font-size: 1.2em;
-    color: #333;
-}
-
-.boton-contacto {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #ff4081; /* Color del botón */
-    color: white;
-    text-decoration: none;
-    border-radius: 25px; /* Bordes redondeados */
-    font-size: 1.5em;
-    transition: background-color 0.3s, transform 0.3s; 
-}
-
-.boton-contacto:hover {
-    background-color: #ff79b0; /* Color al pasar el ratón */
-}
-
-.boton-contacto:active {
-   transform: scale(0.95); /* Efecto de presión al hacer clic */
-   animation: pulseButton 0.2s forwards; /* Pulsar botón */
-}
-
-@keyframes pulseButton {
-   from {
-       transform: scale(1);
-   }
-   to {
-       transform: scale(1.05);
-   }
+@keyframes blink {
+    from { border-color: transparent; }
+    to { border-color: #6c63ff; }
 }
